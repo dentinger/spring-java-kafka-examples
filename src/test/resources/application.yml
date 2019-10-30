@@ -1,0 +1,20 @@
+spring:
+  profile: unittest
+  application:
+    name: toggle-lib
+  kafka:
+    bootstrap-servers: ${spring.embedded.kafka.brokers}
+    consumer:
+      properties:
+        group.id: consumer-org-dentinger
+      auto-offset-reset: earliest
+application:
+  consumer:
+    toggle:
+      groupId: ${random.uuid}
+      topic: SOME.TOPIC
+      consumerid: ${random.uuid}
+
+logging:
+  level:
+    org.dentinger: DEBUG
